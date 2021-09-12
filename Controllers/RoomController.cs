@@ -21,8 +21,10 @@ namespace yacht_dice_backend.Controllers
                 RoomNum = roomList.Count(),
                 RoomTitle = "hello",
                 MaxPeople = 6
-            }) ;
+            });
             return roomList;
         }
+        [HttpPost]
+        public 
     }
 }
