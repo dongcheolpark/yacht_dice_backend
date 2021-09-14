@@ -18,5 +18,16 @@ namespace yacht_dice_backend
             }
             return data;
         }
+
+        public static void add(Room room)
+        {
+            var roomList = GetRoomList();
+            roomList.Add(new Room()
+            {
+                RoomNum = roomList.Count(),
+                RoomTitle = room.RoomTitle,
+                MaxPeople = room.MaxPeople
+            });
+        }
     }
 }

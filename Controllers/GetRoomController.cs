@@ -10,19 +10,20 @@ namespace yacht_dice_backend.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase
+    public class GetRoomController : ControllerBase
     {
-        List<Room> roomList = RoomList.GetRoomList();
         [HttpGet]
-        public IEnumerable<Room> Get()
+        public Room Get(int RoomNum)
         {
+            Room result = null;
+            result = RoomList.GetRoomList().Find(room => room.RoomNum == RoomNum);
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            return roomList;
-        }
-        [HttpPost]
-        public void Post(Room a)
-        {
-            RoomList.add(a);
+            if (result != null)
+            {
+                return result;
+            }
+            return null;
+
         }
     }
 }

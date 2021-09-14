@@ -16,6 +16,7 @@ namespace yacht_dice_backend
 {
     public class Startup
     {
+        readonly string CorsPolicy = "_Cors";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +33,15 @@ namespace yacht_dice_backend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "yacht_dice_backend", Version = "v1" });
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name : CorsPolicy,
+                     builder => builder
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .WithOrigins(new string[] { "http://localhost:8080" })
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +57,8 @@ namespace yacht_dice_backend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
