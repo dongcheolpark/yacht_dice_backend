@@ -16,13 +16,13 @@ namespace yacht_dice_backend.Controllers
         [HttpGet]
         public IEnumerable<Room> Get()
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return roomList;
         }
         [HttpPost]
         public void Post(Room a)
         {
             RoomList.add(a);
+            return;
         }
     }
 }

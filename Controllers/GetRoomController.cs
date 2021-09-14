@@ -17,7 +17,6 @@ namespace yacht_dice_backend.Controllers
         {
             Room result = null;
             result = RoomList.GetRoomList().Find(room => room.RoomNum == RoomNum);
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             if (result != null)
             {
                 return result;

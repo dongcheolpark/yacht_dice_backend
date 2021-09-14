@@ -35,11 +35,11 @@ namespace yacht_dice_backend
             });
             services.AddCors(options =>
             {
-                options.AddPolicy(name : CorsPolicy,
+                options.AddPolicy(name: CorsPolicy,
                      builder => builder
+                        .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader()
-                        .WithOrigins(new string[] { "http://localhost:8080" })
                 );
             });
         }
@@ -58,7 +58,7 @@ namespace yacht_dice_backend
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors(CorsPolicy);
 
             app.UseAuthorization();
 
