@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace yacht_dice_backend.model
 {
-    public class Room
+    public class User
     {
         [Key]
-        public int RoomNum { get; set; }
-        public String RoomTitle { get; set; }
-        public int MaxPeople { get; set; }
-
-        public List<User> userLists = new List<User>();
-
+        public int key;
+        public string userName;
     }
 }
