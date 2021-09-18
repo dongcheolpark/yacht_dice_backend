@@ -9,7 +9,7 @@ namespace yacht_dice_backend.model
     public class User
     {
         [Key]
-        public int key;
-        public string userName;
+        public int key { get; set; }
+        public string userName { get; set; }
     }
 }

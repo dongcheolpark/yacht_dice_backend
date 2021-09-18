@@ -8,21 +8,18 @@ using yacht_dice_backend.model;
 
 namespace yacht_dice_backend.Controllers
 {
+
+
     [Route("[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase
+    public class JoinRoomController : ControllerBase
     {
         List<Room> roomList = RoomList.GetRoomList();
-        [HttpGet]
-        public IEnumerable<Room> Get()
-        {
-            return roomList;
-        }
         [HttpPost]
-        public Room Post(Room a)
+        public void Post(User user,int roomId)
         {
-            Room res = RoomList.add(a);
-            return res;
+            Room room = roomList.Find(a => a.RoomNum == roomId);
+            room.userLists.Add(user);    
         }
     }
 }

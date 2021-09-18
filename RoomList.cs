@@ -19,15 +19,17 @@ namespace yacht_dice_backend
             return data;
         }
 
-        public static void add(Room room)
+        public static Room add(Room room)
         {
             var roomList = GetRoomList();
-            roomList.Add(new Room()
+            Room a = new Room()
             {
                 RoomNum = roomList.Count(),
                 RoomTitle = room.RoomTitle,
                 MaxPeople = room.MaxPeople
-            });
+            };
+            roomList.Add(a);
+            return a;
         }
     }
 }

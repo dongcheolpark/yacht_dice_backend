@@ -10,19 +10,13 @@ namespace yacht_dice_backend.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase
+    public class UsersController : ControllerBase
     {
-        List<Room> roomList = RoomList.GetRoomList();
-        [HttpGet]
-        public IEnumerable<Room> Get()
-        {
-            return roomList;
-        }
+        List<User> userList = UserList.GetUserList();
         [HttpPost]
-        public Room Post(Room a)
+        public int Post(User user)
         {
-            Room res = RoomList.add(a);
-            return res;
+            return UserList.add(user);
         }
     }
 }
