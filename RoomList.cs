@@ -18,7 +18,6 @@ namespace yacht_dice_backend
             }
             return data;
         }
-
         public static Room add(Room room)
         {
             var roomList = GetRoomList();
@@ -26,7 +25,8 @@ namespace yacht_dice_backend
             {
                 RoomNum = roomList.Count(),
                 RoomTitle = room.RoomTitle,
-                MaxPeople = room.MaxPeople
+                MaxPeople = room.MaxPeople,
+                userLists = new List<User>()
             };
             roomList.Add(a);
             return a;
